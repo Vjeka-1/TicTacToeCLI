@@ -99,11 +99,11 @@ def switchPlayer():
 def main():
     global gameRunning
     while gameRunning:
-        print("Fuck niggers")
-        print(board[10])
         printBoard(board) 
-        if checkWin():
-            print(f"The winner is {winner}")
+        playerInput(board)  
+        if checkWin(): 
+            printBoard(board)  #
+            print(f"The winner is {currentPlayer}") 
             while True:
                 restart = input('Do you want to restart? (Y/N): ').lower()
                 if restart == 'y':
@@ -113,7 +113,10 @@ def main():
                     endGame()
                 else:
                     print("Invalid input, try again.")
+
         elif checkTie(board):
+            printBoard(board)  
+            print("It's a tie!")  
             while True:
                 restart = input('Do you want to restart? (Y/N): ').lower()
                 if restart == 'y':
@@ -124,8 +127,8 @@ def main():
                     break
                 else:
                     print("Invalid input, try again.")
+
         else:
-            playerInput(board)
             switchPlayer()
 
 if __name__ == "__main__":
